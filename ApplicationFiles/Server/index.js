@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 // Serve up files from the client/dist
 app.use(express.static(path.join(__dirname, "/../FrontEnd/dist")));
 
+app.get("/basic", (req, res) => {
+  res.send("Hello students!");
+});
+
 // Listen for incoming calls
 app.listen(3000, () => {
   console.log("listening to port 3000");
