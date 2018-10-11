@@ -1,0 +1,35 @@
+{
+  "name": "practicalaxios",
+  "version": "1.0.0",
+  "description": "Quick application of Axios with React",
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon --inspect ApplicationFiles/Server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BearlyAlive/practicalaxios.git"
+  },
+  "author": "BearlyAlive",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.23.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.0",
+    "mongoose": "^5.3.2",
+    "react": "^16.4.2",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^16.4.2"
+  }
+}
