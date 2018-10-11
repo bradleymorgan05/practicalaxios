@@ -12,7 +12,6 @@ class Basic extends React.Component {
 
   searchBasic() {
     axios.get("/basic").then(({ data }) => {
-      console.log(data, this.state.message);
       this.setState({ message: data });
     });
   }
