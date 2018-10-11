@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// Call database file to connect to external MongoDB database
-// AND get database functions (addFood, deleteFood)
-const { addFood, deleteFood } = require("./Food.js");
+// connect to external database using mongoose
+mongoose.connect(
+  "mongodb://axios:axios123@ds015899.mlab.com:15899/practicalaxios",
+  { useCreateIndex: true, useNewUrlParser: true }
+);
+// Upon attempted connection, log result
+mongoose.connection
+  .once("open", () => console.log("Connected to MongoDB.."))
+  .on("error", error => console.log("Error connecting to DB"));
 
 // Create food schema
 const foodSchema = new Schema({
@@ -10,7 +16,7 @@ const foodSchema = new Schema({
   quantity: { type: Number, default: 0 }
 });
 // Declare food model
-const Food = mongoose.model("Food", userSchema);
+const Food = mongoose.model("Food", foodSchema);
 
 // Create food database call
 const addFood = (food, cb) => {

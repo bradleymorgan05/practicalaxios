@@ -1,4 +1,8 @@
 const express = require("express");
+// Call database file to connect to externalMongoDB database
+// AND get database functions (addFood, deleteFood)
+const { addFood, deleteFood } = require("../Database/Food.js");
+
 // allow for references to our path
 const path = require("path");
 
