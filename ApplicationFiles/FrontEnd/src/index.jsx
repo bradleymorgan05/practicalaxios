@@ -5,6 +5,7 @@ import Youtube from "./components/Youtube.jsx";
 import Basic from "./components/Basic.jsx";
 import State from "./components/State.jsx";
 import Personal from "./components/Personal.jsx";
+import Dependent from "./components/Dependent.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -110,14 +111,41 @@ class App extends React.Component {
         <div style={{ marginTop: "25px" }}>
           {this.state.route === "home" && (
             <div>
-              <div>Practical Axios is an interactive tutorial</div>
+              <h2>
+                <u>Practical Axios: an interactive tutorial</u>
+              </h2>
+
+              <div>
+                <strong>Axios</strong> is a Promise based HTTP client for the
+                browser and node.js
+              </div>
+              <div style={{ marginTop: "20px" }}>
+                <u>Benefits</u>
+              </div>
+              <div>More legible code </div>
+              <div>Built-In clientside protection against XSRF</div>
+              <div>Intercept request and response</div>
+              <div>Automatic transform JSON data</div>
+
+              <div style={{ marginTop: "20px" }}>
+                <u>Installation instruction</u>
+              </div>
+              <div>1) Npm install axios </div>
+              <div>2) Import axios in each react component</div>
+              <div style={{ marginTop: "20px" }}>
+                <strong>
+                  <u>Utilized Stack:</u>
+                </strong>
+                (Express: bodyparser/path), <strong>MongoDB</strong>
+                (Mongoose) , <strong>React</strong>
+              </div>
             </div>
           )}
           {this.state.route === "youtube" && <Youtube />}
           {this.state.route === "basic" && <Basic />}
           {this.state.route === "state" && <State />}
           {this.state.route === "personal" && <Personal />}
-          {this.state.route === "dependent" && <div>dependent</div>}
+          {this.state.route === "dependent" && <Dependent />}
         </div>
       </div>
     );

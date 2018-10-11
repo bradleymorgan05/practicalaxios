@@ -5,46 +5,52 @@ class Personal extends React.Component {
   constructor() {
     super();
     this.state = {
-      foodName: "",
-      foods: [{ name: "" }]
+      randomNum: 0,
+      pokemonUrl: ""
     };
-    this.addFood = this.addFood.bind(this);
+    this.generatePokemon = this.generatePokemon.bind(this);
   }
 
-  addFood(e, name) {
+  generatePokemon(e) {
     e.preventDefault();
-    axios.post("/food", { params: { food: name } }).then(() => {
-      axios.get("/foods").then(data => {
-        console.log(data);
+    axios
+      .get(
+        "https://www.random.org/integers/?num=1&min=1&max=151&col=1&base=10&format=plain&rnd=new"
+      )
+      .then(({ data }) => {
+        this.setState({ randomNum: data });
+        let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${data}/`;
+        axios.get(pokeUrl).then(({ data }) => {
+          this.setState({ pokemonUrl: data.sprites.front_default });
+        });
       });
-    });
   }
 
   render() {
     return (
       <div>
-        <div>Search</div>
+        <h2>Dependent Calls</h2>
         <div className="row">
           <div className="col">
-            <form
-              onSubmit={e => {
-                this.addFood(e, this.state.foodName);
-              }}
-            >
-              <input
-                type="text"
-                name="name"
-                value={this.state.foodName}
-                onChange={event => {
-                  this.setState({ foodName: event.target.value });
-                }}
-              />
-            </form>
+            <div className="card">
+              <div className="card-body">
+                <button onClick={this.generatePokemon}>Generate Pokemon</button>
+              </div>
+            </div>
           </div>
           <div className="col">
-            {this.state.foods.map(food => {
-              return <div key={food.name}>{food.name}</div>;
-            })}
+            <div className="card">
+              <div className="card-body">
+                Pokedex Entry: {this.state.randomNum}
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card">
+              <div className="card-body">
+                <img src={this.state.pokemonUrl} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

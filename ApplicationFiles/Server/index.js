@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 // Call database file to connect to externalMongoDB database
 // AND get database functions (addFood, deleteFood)
-const { getFoods, addFood, deleteFood } = require("../Database/Food.js");
+const { getFoods, addFood } = require("../Database/Food.js");
 
 // Create an app instance of express
 const app = express();
@@ -30,8 +30,6 @@ app.post("/food", (req, res) => {
   addFood(req.body.params.food);
   res.send();
 });
-
-// Delete Food Item
 
 // Listen for incoming calls
 app.listen(3000, () => {

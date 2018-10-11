@@ -18,23 +18,18 @@ const foodSchema = new Schema({
 const Food = mongoose.model("Food", foodSchema);
 
 // Get all food database call
-const getFoods = cb => {
+const getFoods = callback => {
   Food.find({}, (err, food) => {
-    cb(food);
+    callback(food);
   });
 };
 
 // Create food database call
-const addFood = (food, cb) => {
+const addFood = food => {
   var newFood = new Food({
     name: food
   });
   newFood.save();
 };
 
-// Delete food database call
-const deleteFood = (food, cb) => {
-  Food.findOneAndRemove({ name: food });
-};
-
-module.exports = { getFoods, addFood, deleteFood };
+module.exports = { getFoods, addFood };

@@ -32,25 +32,33 @@ class Youtube extends React.Component {
   render() {
     return (
       <div>
-        <div>Search (Open console)</div>
-        <input
-          type="text"
-          name="name"
-          value={this.state.search}
-          onChange={event => {
-            this.setState({ search: event.target.value }, () => {
-              this.searchYoutube(this.state.search);
-            });
-          }}
-        />
-        {this.state.videos.map(video => {
-          return (
-            <div key={video.id.videoId}>
-              <img src={video.snippet.thumbnails.default.url} />
-              {video.snippet.title}
-            </div>
-          );
-        })}
+        <h3>Youtube API (Open console)</h3>
+        <div className="card">
+          <div className="card-body">
+            <input
+              type="text"
+              name="name"
+              value={this.state.search}
+              onChange={event => {
+                this.setState({ search: event.target.value }, () => {
+                  this.searchYoutube(this.state.search);
+                });
+              }}
+            />
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-body">
+            {this.state.videos.map(video => {
+              return (
+                <div key={video.id.videoId}>
+                  <img src={video.snippet.thumbnails.default.url} />
+                  {video.snippet.title}
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }

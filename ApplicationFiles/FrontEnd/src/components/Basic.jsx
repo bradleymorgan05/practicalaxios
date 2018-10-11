@@ -20,8 +20,11 @@ class Basic extends React.Component {
   render() {
     return (
       <div>
+        <h3>Local Server</h3>
         <button onClick={this.searchBasic}>Get Message</button>
-        <div>{this.state.message}</div>
+        <div>
+          <h4>{this.state.message}</h4>
+        </div>
       </div>
     );
   }

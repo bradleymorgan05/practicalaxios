@@ -30,28 +30,36 @@ class Personal extends React.Component {
   render() {
     return (
       <div>
-        <div>Search</div>
+        <h2>Personal Database</h2>
         <div className="row">
           <div className="col">
-            <form
-              onSubmit={e => {
-                this.addFood(e, this.state.foodName);
-              }}
-            >
-              <input
-                type="text"
-                name="name"
-                value={this.state.foodName}
-                onChange={event => {
-                  this.setState({ foodName: event.target.value });
-                }}
-              />
-            </form>
+            <div className="card">
+              <div className="card-body">
+                <form
+                  onSubmit={e => {
+                    this.addFood(e, this.state.foodName);
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.foodName}
+                    onChange={event => {
+                      this.setState({ foodName: event.target.value });
+                    }}
+                  />
+                </form>
+              </div>
+            </div>
           </div>
           <div className="col">
-            {this.state.foods.map(food => {
-              return <div key={food.name}>{food.name}</div>;
-            })}
+            <div className="card">
+              <div className="card-body">
+                {this.state.foods.map(food => {
+                  return <div key={food.name}>{food.name}</div>;
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
