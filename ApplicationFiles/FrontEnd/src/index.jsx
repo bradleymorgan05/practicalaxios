@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 // Importing Sub Components
 import Youtube from "./components/Youtube.jsx";
 import Basic from "./components/Basic.jsx";
+import State from "./components/State.jsx";
+import Personal from "./components/Personal.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class App extends React.Component {
             onClick={() => {
               this.setState({ route: "home" });
             }}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", color: "white", fontWeight: "bold" }}
           >
             Practical Axios
           </a>
@@ -33,7 +35,11 @@ class App extends React.Component {
                   onClick={() => {
                     this.setState({ route: "youtube" });
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "orange",
+                    fontWeight: "bold"
+                  }}
                 >
                   Youtube API
                 </a>
@@ -44,9 +50,13 @@ class App extends React.Component {
                   onClick={() => {
                     this.setState({ route: "basic" });
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "purple",
+                    fontWeight: "bold"
+                  }}
                 >
-                  Basic Local Server Response
+                  Local Server
                 </a>
               </li>
               <li className="nav-item">
@@ -55,7 +65,11 @@ class App extends React.Component {
                   onClick={() => {
                     this.setState({ route: "state" });
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "red",
+                    fontWeight: "bold"
+                  }}
                 >
                   React State
                 </a>
@@ -66,7 +80,11 @@ class App extends React.Component {
                   onClick={() => {
                     this.setState({ route: "personal" });
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "blue",
+                    fontWeight: "bold"
+                  }}
                 >
                   Personal Database
                 </a>
@@ -75,11 +93,15 @@ class App extends React.Component {
                 <a
                   className="nav-link"
                   onClick={() => {
-                    this.setState({ route: "auto" });
+                    this.setState({ route: "dependent" });
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "black",
+                    fontWeight: "bold"
+                  }}
                 >
-                  Autocomplete
+                  Dependent Calls
                 </a>
               </li>
             </ul>
@@ -93,9 +115,9 @@ class App extends React.Component {
           )}
           {this.state.route === "youtube" && <Youtube />}
           {this.state.route === "basic" && <Basic />}
-          {this.state.route === "state" && <div>state</div>}
-          {this.state.route === "personal" && <div>personal</div>}
-          {this.state.route === "auto" && <div>auto</div>}
+          {this.state.route === "state" && <State />}
+          {this.state.route === "personal" && <Personal />}
+          {this.state.route === "dependent" && <div>dependent</div>}
         </div>
       </div>
     );

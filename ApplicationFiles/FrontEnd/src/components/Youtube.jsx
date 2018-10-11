@@ -12,6 +12,7 @@ class Youtube extends React.Component {
   }
 
   searchYoutube(search) {
+    console.log("axios GET " + search);
     axios
       .get("https://www.googleapis.com/youtube/v3/search", {
         params: {
@@ -31,6 +32,7 @@ class Youtube extends React.Component {
   render() {
     return (
       <div>
+        <div>Search (Open console)</div>
         <input
           type="text"
           name="name"

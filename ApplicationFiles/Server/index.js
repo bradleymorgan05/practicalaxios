@@ -18,6 +18,21 @@ app.get("/basic", (req, res) => {
   res.send("Hello students!");
 });
 
+// Get All Foods
+app.get("/foods", (req, res) => {
+  getFoods(data => {
+    res.send(data);
+  });
+});
+
+// Save Food Item
+app.post("/food", (req, res) => {
+  addFood(req.body.params.food);
+  res.send();
+});
+
+// Delete Food Item
+
 // Listen for incoming calls
 app.listen(3000, () => {
   console.log("listening to port 3000");

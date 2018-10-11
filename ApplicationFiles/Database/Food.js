@@ -12,31 +12,29 @@ mongoose.connection
 
 // Create food schema
 const foodSchema = new Schema({
-  food: String,
-  quantity: { type: Number, default: 0 }
+  name: String
 });
 // Declare food model
 const Food = mongoose.model("Food", foodSchema);
 
 // Get all food database call
 const getFoods = cb => {
-  Event.find({}, (err, foods) => {
-    cb(foods);
+  Food.find({}, (err, food) => {
+    cb(food);
   });
 };
 
 // Create food database call
 const addFood = (food, cb) => {
   var newFood = new Food({
-    food: food.name,
-    quantity: food.quantity
+    name: food
   });
   newFood.save();
 };
 
 // Delete food database call
 const deleteFood = (food, cb) => {
-  Food.findOneAndRemove({ name: food.name });
+  Food.findOneAndRemove({ name: food });
 };
 
 module.exports = { getFoods, addFood, deleteFood };
